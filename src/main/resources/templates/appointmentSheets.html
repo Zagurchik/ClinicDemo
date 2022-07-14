@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tbody>
+    <tr>
+        <td>Фамилия</td>
+        <td>Диагностика</td>
+        <td>Таблетки</td>
+        <td>Уколы/капельницы</td>
+        <td>Удалить</td>
+    </tr>
+    <tr th:each="appointmentSheet : ${appointmentSheets}">
+        <td th:text="${appointmentSheet.patient.surname}"></td>
+        <td th:text="${appointmentSheet.diagnostics}"></td>
+        <td th:text="${appointmentSheet.tablets}"></td>
+        <td th:text="${appointmentSheet.injection}"></td>
+    <td>
+        <a class="text-danger" th:href="@{deleteAppointment(id=${appointmentSheet.id})}">Удалить</a>
+    </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

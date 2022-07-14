@@ -11,6 +11,9 @@
     <a href="add">Новый пациент</a>
     <br>
     <br>
+    <a href="appointmentSheets">Листы Назначения</a>
+    <br>
+    <br>
     <table class="table table-striped">
         <tr>
             <td>Фамилия</td>
@@ -18,6 +21,7 @@
             <td>Отчество</td>
             <td>Дата рождения</td>
             <td>Диагноз</td>
+            <td>Листы назначения</td>
             <td>Изменить</td>
             <td>Удаление</td>
         </tr>
@@ -27,6 +31,9 @@
             <td th:text="${patient.patronymic}"></td>
             <td th:text="${patient.birthdate}"></td>
             <td th:text="${patient.diagnose}"></td>
+            <td>
+                <a th:href="@{addAppointment(id=${patient.id})}">Добавить лист назначения</a>
+            </td>
             <td>
                 <a th:href="@{update(id=${patient.id})}">Изменить</a>
             </td>

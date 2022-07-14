@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -19,6 +20,17 @@ public class Patient {
     private String surname;
     private String patronymic;
     private String diagnose;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
+    private List<AppointmentSheet> appointmentSheetsList;
+
+    public List<AppointmentSheet> getAppointmentSheetsList() {
+        return appointmentSheetsList;
+    }
+
+    public void setAppointmentSheetsList(List<AppointmentSheet> appointmentSheetsList) {
+        this.appointmentSheetsList = appointmentSheetsList;
+    }
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyy-MM-dd")

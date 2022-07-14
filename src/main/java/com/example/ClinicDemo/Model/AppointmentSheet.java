@@ -1,39 +1,71 @@
 package com.example.ClinicDemo.Model;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.util.Date;
 
 @Entity
 public class AppointmentSheet {
-    private int date;
-    private String appointment;
-    boolean isDo;
+    private String diagnostics;
+    private String tablets;
+    private String injection;
 
-    public int getDate() {
-        return date;
+    @ManyToOne
+    private Patient patient;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    public int getId() {
+        return id;
     }
 
-    public void setDate(int date) {
-        this.date = date;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getAppointment() {
-        return appointment;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setAppointment(String appointment) {
-        this.appointment = appointment;
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
-    public boolean isDo() {
-        return isDo;
+
+    public String getDiagnostics() {
+        return diagnostics;
     }
 
-    public void setDo(boolean aDo) {
-        isDo = aDo;
+    public void setDiagnostics(String diagnostics) {
+        this.diagnostics = diagnostics;
+    }
+
+    public String getTablets() {
+        return tablets;
+    }
+
+    public void setTablets(String tablets) {
+        this.tablets = tablets;
+    }
+
+    public String getInjection() {
+        return injection;
+    }
+
+    public void setInjection(String injection) {
+        this.injection = injection;
+    }
+
+    @Override
+    public String toString() {
+        return "AppointmentSheet{" +
+                "diagnostics='" + diagnostics + '\'' +
+                ", tablets='" + tablets + '\'' +
+                ", injection='" + injection + '\'' +
+                ", patient=" + patient +
+                ", id=" + id +
+                '}';
     }
 }
