@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form action="update" method="post" th:object = "${patient}">
+        <input type="hidden" th:field = "*{id}">
+        Имя <input type="text" name="name" th:field = "*{name}">
+        <br>
+        Фамилия <input type="text" name="surname" th:field = "*{surname}">
+        <br>
+        Отчество <input type="text" name="patronymic" th:field = "*{patronymic}">
+        <br>
+        Дата Рождения <input type="date" name="birthdate" th:field = "*{birthdate}">
+        <br>
+        Диагноз <input type="text" name="diagnose" th:field = "*{diagnose}">
+        <br>
+        <br>
+        <button type="submit">Изменить</button>
+    </form>
+</div>
+</body>
+</html>
