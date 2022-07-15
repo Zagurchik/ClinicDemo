@@ -1,6 +1,7 @@
 package com.example.ClinicDemo.controller;
 
 import com.example.ClinicDemo.Model.AppointmentSheet;
+import com.example.ClinicDemo.Model.Patient;
 import com.example.ClinicDemo.repository.AppointmentSheetRepository;
 import com.example.ClinicDemo.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class AppointmentSheetController {
     @Autowired
     PatientRepository patientRepository;
 
-   @GetMapping("/appointmentSheets")
+    @GetMapping("/appointmentSheets")
     public String foundAll(Model model) {
         List<AppointmentSheet> appointmentSheets = appointmentSheetRepository.findAll();
         model.addAttribute("appointmentSheets", appointmentSheets);
@@ -25,18 +26,21 @@ public class AppointmentSheetController {
     }
 
     @GetMapping("/addAppointment")
-    public String add (Model model) {
-       model.addAttribute("patients",patientRepository.findAll());
+    public String add(@RequestParam int id, Model model) {
+
+        Patient patient = patientRepository.findById(id).get();
+        model.addAttribute("patient", patient);
         return "addAppointment";
     }
 
     @PostMapping("/addAppointment")
-    public String add (@ModelAttribute AppointmentSheet appointmentSheet){
+    public String add(@ModelAttribute AppointmentSheet appointmentSheet) {
         appointmentSheetRepository.save(appointmentSheet);
         return "redirect:appointmentSheets";
     }
+
     @GetMapping("/deleteAppointment")
-    public String delete (@RequestParam int id) {
+    public String delete(@RequestParam int id) {
         appointmentSheetRepository.deleteById(id);
         return "redirect:appointmentSheets";
     }

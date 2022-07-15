@@ -8,6 +8,15 @@
 <h2>  </h2>
 <div class="container">
     <form action="addAppointment" method="post">
+        Имя <p th:text="${patient.name}"></p>
+        <br>
+        Фамилия <p th:text="${patient.surname}"></p>
+        <br>
+        Отчество <p th:text="${patient.patronymic}"></p>
+        <br>
+        Дата Рождения <p th:text="${patient.birthdate}"></p>
+        <br>
+        Диагноз <p th:text="${patient.diagnose}"></p>
         <br>
         Диагностика <input type="text" name="diagnostics">
         <br>
