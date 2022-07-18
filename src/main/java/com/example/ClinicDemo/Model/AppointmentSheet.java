@@ -58,6 +58,17 @@ public class AppointmentSheet {
         this.injection = injection;
     }
 
+    public AppointmentSheet() {
+    }
+
+    public AppointmentSheet(String diagnostics, String tablets, String injection, Patient patient, int id) {
+        this.diagnostics = diagnostics;
+        this.tablets = tablets;
+        this.injection = injection;
+        this.patient = patient;
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "AppointmentSheet{" +

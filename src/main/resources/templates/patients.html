@@ -7,11 +7,15 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+<h2>Клиника</h2>
 <div class="container">
-    <a href="add">Новый пациент</a>
+    <a href="addPatients">Новый пациент</a>
     <br>
     <br>
     <a href="appointmentSheets">Листы Назначения</a>
+    <br>
+    <br>
+    <a th:href="addAppointment">Добавить лист назначения</a>
     <br>
     <br>
     <table class="table table-striped">
@@ -21,7 +25,6 @@
             <td>Отчество</td>
             <td>Дата рождения</td>
             <td>Диагноз</td>
-            <td>Листы назначения</td>
             <td>Изменить</td>
             <td>Удаление</td>
         </tr>
@@ -32,10 +35,7 @@
             <td th:text="${patient.birthdate}"></td>
             <td th:text="${patient.diagnose}"></td>
             <td>
-                <a th:href="@{addAppointment(id=${patient.id})}">Добавить лист назначения</a>
-            </td>
-            <td>
-                <a th:href="@{update(id=${patient.id})}">Изменить</a>
+                <a th:href="@{updatePatients(id=${patient.id})}">Изменить</a>
             </td>
             <td>
                 <a class="text-danger" th:href="@{delete(id=${patient.id})}">Удалить</a>

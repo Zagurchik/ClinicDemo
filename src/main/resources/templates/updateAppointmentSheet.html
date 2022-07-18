@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <form action="update" method="post" th:object = "${appointmentSheet}">
+    <input type="hidden" th:field = "*{id}">
+    <h3 th:text="${appointmentSheet.patient}"></h3>
+    <br>
+    <br>
+    <br>
+    Диагностика <input type="text" name="diagnostics" th:field = "*{diagnostics}">
+    <br>
+    Таблети <input type="text" name="tablets" th:field = "*{tablets}">
+    <br>
+    Уколы/капельницы <input type="text" name="injection" th:field = "*{injection}">
+    <br>
+    <br>
+    <button type="submit">Изменить</button>
+  </form>
+</div>
+</body>
+</html>

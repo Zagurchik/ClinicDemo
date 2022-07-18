@@ -24,12 +24,12 @@ public class PatientController {
         return "patients";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/addPatients")
     public String add (){
-        return "add";
+        return "addPatients";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/addPatients")
     public String add (@ModelAttribute Patient patient){
         repository.save(patient);
         return "redirect:patients";
@@ -42,11 +42,11 @@ public class PatientController {
     }
 
 
-    @GetMapping("/update")
+    @GetMapping("/updatePatients")
     public String update (@RequestParam int id, Model model) {
         Patient patient = repository.findById(id).get();
         model.addAttribute("patient",patient);
-        return "update";
+        return "updatePatients";
     }
 
     @PostMapping("/update")
@@ -54,8 +54,5 @@ public class PatientController {
         repository.save(patient);
         return "redirect:patients";
     }
-
-
-
 }
 

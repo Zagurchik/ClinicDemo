@@ -19,17 +19,15 @@ public class AppointmentSheetController {
     PatientRepository patientRepository;
 
     @GetMapping("/appointmentSheets")
-    public String foundAll(Model model) {
+    public String findAll(Model model) {
         List<AppointmentSheet> appointmentSheets = appointmentSheetRepository.findAll();
         model.addAttribute("appointmentSheets", appointmentSheets);
         return "appointmentSheets";
     }
 
     @GetMapping("/addAppointment")
-    public String add(@RequestParam int id, Model model) {
-
-        Patient patient = patientRepository.findById(id).get();
-        model.addAttribute("patient", patient);
+    public String add(Model model) {
+        model.addAttribute("patients", patientRepository.findAll());
         return "addAppointment";
     }
 
@@ -44,5 +42,16 @@ public class AppointmentSheetController {
         appointmentSheetRepository.deleteById(id);
         return "redirect:appointmentSheets";
     }
+    @GetMapping("/updateAppointmentSheet")
+    public String update (@RequestParam int id, Model model) {
+        AppointmentSheet appointmentSheet = appointmentSheetRepository.findById(id).get();
+        model.addAttribute("appointmentSheet",appointmentSheet);
+        return "updateAppointmentSheet";
+    }
 
+    @PostMapping("/updateAppointmentSheet")
+    public String update (@ModelAttribute AppointmentSheet appointmentSheet) {
+        appointmentSheetRepository.save(appointmentSheet);
+        return "redirect:appointmentSheets";
+    }
 }

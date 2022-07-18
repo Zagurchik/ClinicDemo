@@ -9,19 +9,27 @@
     <tbody>
     <tr>
         <td>Фамилия</td>
+        <td>Имя</td>
+        <td>Отчество</td>
         <td>Диагностика</td>
         <td>Таблетки</td>
         <td>Уколы/капельницы</td>
+        <td>Изменить</td>
         <td>Удалить</td>
     </tr>
     <tr th:each="appointmentSheet : ${appointmentSheets}">
         <td th:text="${appointmentSheet.patient.surname}"></td>
+     <td th:text="${appointmentSheet.patient.name}"></td>
+        <td th:text="${appointmentSheet.patient.patronymic}"></td>
         <td th:text="${appointmentSheet.diagnostics}"></td>
         <td th:text="${appointmentSheet.tablets}"></td>
         <td th:text="${appointmentSheet.injection}"></td>
-    <td>
-        <a class="text-danger" th:href="@{deleteAppointment(id=${appointmentSheet.id})}">Удалить</a>
-    </td>
+        <td>
+            <a th:href="@{updateAppointmentSheet(id=${appointmentSheet.id})}">Изменить</a>
+        </td>
+        <td>
+            <a class="text-danger" th:href="@{deleteAppointment(id=${appointmentSheet.id})}">Удалить</a>
+        </td>
     </tr>
     </tbody>
 </table>

@@ -8,15 +8,7 @@
 <h2>  </h2>
 <div class="container">
     <form action="addAppointment" method="post">
-        Имя <p th:text="${patient.name}"></p>
         <br>
-        Фамилия <p th:text="${patient.surname}"></p>
-        <br>
-        Отчество <p th:text="${patient.patronymic}"></p>
-        <br>
-        Дата Рождения <p th:text="${patient.birthdate}"></p>
-        <br>
-        Диагноз <p th:text="${patient.diagnose}"></p>
         <br>
         Диагностика <input type="text" name="diagnostics">
         <br>
@@ -24,7 +16,13 @@
         <br>
         Уколы/капельницы <input type="text" name="injection">
         <br>
+        <select name="patient">
+            <th:block th:each="patient : ${patients}">
+                <option th:value="${patient.id}" th:text="${patient}" ></option>
+            </th:block>
+        </select>
         <br>
+
         <br>
         <button class="btn - btn-success" type="submit">Добавить назначения</button>
     </form>

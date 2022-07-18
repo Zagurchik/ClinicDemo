@@ -14,22 +14,20 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-
     private String name;
     private String surname;
     private String patronymic;
     private String diagnose;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
-    private List<AppointmentSheet> appointmentSheetsList;
+    private List<AppointmentSheet> appointmentSheets;
 
-    public List<AppointmentSheet> getAppointmentSheetsList() {
-        return appointmentSheetsList;
+    public List<AppointmentSheet> getAppointmentSheets() {
+        return appointmentSheets;
     }
 
-    public void setAppointmentSheetsList(List<AppointmentSheet> appointmentSheetsList) {
-        this.appointmentSheetsList = appointmentSheetsList;
+    public void setAppointmentSheets(List<AppointmentSheet> appointmentSheets) {
+        this.appointmentSheets = appointmentSheets;
     }
 
     @Temporal(TemporalType.DATE)
@@ -50,6 +48,13 @@ public class Patient {
     }
 
     public Patient() {
+    }
+
+    public Patient(int id, String name, String surname, String patronymic) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
     }
 
     public Patient(int id) {
@@ -97,14 +102,17 @@ public class Patient {
         this.birthdate = birthdate;
     }
 
+    public Patient(int id, String name, String surname, String patronymic, List<AppointmentSheet> appointmentSheets) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.appointmentSheets = appointmentSheets;
+    }
+
     @Override
     public String toString() {
-        return "Patient{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", diagnose='" + diagnose + '\'' +
-                '}';
+        return surname + " " + name + " " +
+                patronymic + " " + birthdate;
     }
 }
