@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="update" method="post" th:object = "${patient}">
+    <form action="updatePatients" method="post" th:object = "${patient}">
         <input type="hidden" th:field = "*{id}">
         Имя <input type="text" name="name" th:field = "*{name}">
         <br>

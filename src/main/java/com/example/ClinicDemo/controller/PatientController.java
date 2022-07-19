@@ -49,7 +49,7 @@ public class PatientController {
         return "updatePatients";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/updatePatients")
     public String update (@ModelAttribute Patient patient) {
         repository.save(patient);
         return "redirect:patients";

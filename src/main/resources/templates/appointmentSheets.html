@@ -19,7 +19,7 @@
     </tr>
     <tr th:each="appointmentSheet : ${appointmentSheets}">
         <td th:text="${appointmentSheet.patient.surname}"></td>
-     <td th:text="${appointmentSheet.patient.name}"></td>
+        <td th:text="${appointmentSheet.patient.name}"></td>
         <td th:text="${appointmentSheet.patient.patronymic}"></td>
         <td th:text="${appointmentSheet.diagnostics}"></td>
         <td th:text="${appointmentSheet.tablets}"></td>
@@ -33,5 +33,6 @@
     </tr>
     </tbody>
 </table>
+<a th:href="@{patients}">Назад</a>
 </body>
 </html>

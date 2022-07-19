@@ -8,10 +8,10 @@
 </head>
 <body>
 <div class="container">
-  <form action="update" method="post" th:object = "${appointmentSheet}">
+  <form action="updateAppointmentSheet" method="post" th:object = "${appointmentSheet}">
     <input type="hidden" th:field = "*{id}">
+    <input type="hidden" th:field = "*{patient.id}">
     <h3 th:text="${appointmentSheet.patient}"></h3>
-    <br>
     <br>
     <br>
     Диагностика <input type="text" name="diagnostics" th:field = "*{diagnostics}">
