@@ -1,7 +1,6 @@
 package com.example.ClinicDemo.controller;
 
 import com.example.ClinicDemo.Model.AppointmentSheet;
-import com.example.ClinicDemo.Model.Patient;
 import com.example.ClinicDemo.repository.AppointmentSheetRepository;
 import com.example.ClinicDemo.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
